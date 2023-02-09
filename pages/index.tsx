@@ -12,6 +12,18 @@ let rteData = {
 };
 
 export default function Home() {
+  const save = async () => {
+    const res = await fetch('/api/field', {
+      body: JSON.stringify({
+        fieldName: 'profile',
+        language: 'nl',
+        value: 'Lorem ipsum'
+      }),
+      method: "PUT",
+    });
+  }
+
+
   return (
     <>
       <Head>
@@ -100,6 +112,7 @@ export default function Home() {
           </a>
         </div>
         <RichTextEditor data={rteData}></RichTextEditor>
+        <button onClick={save}>Save</button>
       </main>
     </>
   );
