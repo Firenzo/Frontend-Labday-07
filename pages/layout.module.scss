@@ -1,8 +1,13 @@
 .layout {
-  background-color: purple;
+  background-color: #edecf4;
   display: flex;
   padding: 0;
   justify-content: center;
+}
+
+.navbarWrapper {
+  border-bottom: 5px solid #321092;
+  padding-bottom: 20px;
 }
 
 .navbar {
@@ -19,18 +24,6 @@
 
   @media only screen and (min-width: 1000px) {
     margin-left: -40px;
-  }
-}
-
-.linkWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-grow: 1;
-
-  & > a:not(:last-child) {
-    margin-right: 30px;
   }
 }
 
