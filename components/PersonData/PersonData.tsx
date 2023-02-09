@@ -35,15 +35,8 @@ export function PersonData() {
 
   return (
     personData && (
-      <div className={styles.personDataWrapper}>
-        <div className={styles.photoWrapper}>
-          {/* <Image
-            src={profilePhoto}
-            alt="Mila's photo"
-            width={300}
-            className={styles.profilePhoto}
-          /> */}
-        </div>
+      <div className={`${styles.personDataWrapper} wrapper`}>
+        <div className={styles.photoWrapper}></div>
         <div className={styles.dataWrapper}>
           <p className={styles.name}>{personData.name}</p>
           <p>

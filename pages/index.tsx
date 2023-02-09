@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import { PersonData } from '@/components/PersonData/PersonData';
+import { ProfileField } from '@/components/ProfileField/ProfileField';
 
 import { TextField } from '@/components/textField/TextField';
 
@@ -30,6 +31,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <PersonData />
+        <ProfileField />
 
         <div className={styles.grid}></div>
 

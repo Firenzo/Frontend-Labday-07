@@ -103,5 +103,6 @@ a {
 
 .wrapper {
   max-width: var(--max-width);
+  width: 90vw;
   margin: auto;
 }

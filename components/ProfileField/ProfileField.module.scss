@@ -1,0 +1,44 @@
+.profileWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-bottom: 80px;
+
+  & > p {
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.fieldWrapper {
+  margin-bottom: 50px;
+
+  p {
+    max-width: 700px;
+    line-height: 24px;
+  }
+}
+
+.title {
+  color: #321092;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.competences {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.competence {
+  margin: 5px;
+  width: fit-content;
+  color: white;
+  font-weight: bold;
+  padding: 10px 25px;
+  background-color: #321092;
+  border-radius: 7000px;
+}
