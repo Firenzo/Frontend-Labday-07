@@ -37,6 +37,20 @@ export default async function handler(
           message: "Succesvol opgeslagen!",
         })
       );
+
+      const updateDateRequestOptions = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(new Date()),
+      };
+      fetch(
+        `https://labday7-default-rtdb.europe-west1.firebasedatabase.app/cv/lastUpdated.json`,
+        updateDateRequestOptions
+      ).then((response) =>
+        res.status(200).json({
+          message: "datum geupdate",
+        })
+      );
   } else {
     res.status(200).json({
       message: "Kon niet opslaan!",
