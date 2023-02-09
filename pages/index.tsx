@@ -2,10 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import { SetStateAction, useEffect, useState } from "react";
+import CKeditor from "../components/CKeditor";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,7 +26,6 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Get started by editing&nbsp;
             <code className={styles.code}>pages/index.tsx</code>
           </p>
           <div>
@@ -26,7 +34,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -117,7 +125,16 @@ export default function Home() {
             </p>
           </a>
         </div>
+        <div>
+      <CKeditor
+            name="description"
+            onChange={(data: SetStateAction<string>) => {
+              setData(data);
+            } }
+            editorLoaded={editorLoaded} value={undefined}      />
+       {JSON.stringify(data)}
+    </div>
       </main>
     </>
-  )
+  );
 }
