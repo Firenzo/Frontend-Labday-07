@@ -35,11 +35,11 @@ export default function Home() {
         <div className={styles.grid}></div>
 
         <TextField
-          rteData={'click here to activate the text editor'}
+          rteData={'click here to activate the text editor'} field='profile' language='nl'
         ></TextField>
-        <TextField rteData={'2e veld voor het testen'}></TextField>
+        {/* <TextField rteData={'2e veld voor het testen'}></TextField>
 
-        <TextField rteData={'3e veld voor het extra testen!'}></TextField>
+        <TextField rteData={'3e veld voor het extra testen!'}></TextField> */}
 
         <button onClick={save}>Save</button>
       </main>

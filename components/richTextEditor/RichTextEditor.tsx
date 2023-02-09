@@ -5,9 +5,10 @@ import styles from './RichTextEditor.module.scss';
 
 export type RichTextEditorProps = {
     rteData: string;
+    saveData: (data: string) => void;
 };
 
-export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
+export function RichTextEditor({rteData, saveData}: RichTextEditorProps)
     {
         const [editorLoaded, setEditorLoaded] = useState(false);
         const [data, setData] = useState("");
@@ -20,11 +21,11 @@ export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
             <div className={styles.wrapper}>
                 <CKeditor
                     name="description"
-                    onChange={(data: SetStateAction<string>) => {
-                    setData(data);
-                    } }
+                    onChange={(data: string) => {
+                        setData(data);
+                    }}
                     editorLoaded={editorLoaded} value={rteData}/>
 
-                    <button>✓</button>
+                    <button onClick={() => saveData(data)}>save</button>
             </div>
     );}
