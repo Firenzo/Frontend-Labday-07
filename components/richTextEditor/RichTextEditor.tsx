@@ -19,12 +19,12 @@ export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
         return (
             <div className={styles.wrapper}>
                 <CKeditor
-                        name="description"
-                        onChange={(data: SetStateAction<string>) => {
-                        setData(data);
-                        } }
-                        editorLoaded={editorLoaded} value={rteData}/>
+                    name="description"
+                    onChange={(data: SetStateAction<string>) => {
+                    setData(data);
+                    } }
+                    editorLoaded={editorLoaded} value={rteData}/>
 
-                        <button>V</button>
+                    <button>✓</button>
             </div>
     );}
