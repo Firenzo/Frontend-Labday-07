@@ -4,10 +4,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import styles from './LinkSection.module.scss';
 
 export type RichTextEditorProps = {
-    rteData: {
-        title: string;
-        description: string;
-    };
+    rteData: string;
 };
 
 export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
@@ -26,10 +23,6 @@ export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
                         onChange={(data: SetStateAction<string>) => {
                         setData(data);
                         } }
-                        editorLoaded={editorLoaded} value={undefined}/>
-
-                {console.log(data)}
-                {data}
-                {/* {JSON.stringify(data)} */}
+                        editorLoaded={editorLoaded} value={rteData}/>
             </div>
     );}
