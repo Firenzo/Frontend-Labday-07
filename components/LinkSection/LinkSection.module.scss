@@ -1,0 +1,80 @@
+@use '@p1o-fe/styling/tools/spacing' as s;
+@use '@p1o-fe/styling/tools/mediaQuery' as q;
+@use '@p1o-fe/styling/settings/fontSizes' as f;
+
+$left-stroke-width: 4px;
+
+@mixin typographyMobile {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@mixin typographyOtherMedia {
+  font-size: f.$fontSmall;
+  line-height: 1.75;
+}
+
+.linkSection {
+  color: var(--link-section-gray);
+  padding-left: calc(s.spacing(3) + $left-stroke-width);
+  position: relative;
+
+  :global([dir='rtl']) & {
+    padding-right: calc(s.spacing(3) + $left-stroke-width);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--link-section-gray);
+    width: $left-stroke-width;
+    border-radius: calc($left-stroke-width / 2);
+
+    :global([dir='rtl']) & {
+      right: 0;
+    }
+  }
+
+  h2 {
+    @include typographyMobile;
+    text-transform: uppercase;
+    margin-bottom: s.spacing(2);
+    padding-top: s.spacing(2);
+
+    @include q.medium {
+      @include typographyOtherMedia;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      text-indent: 0;
+      margin-bottom: 0;
+      padding-bottom: s.spacing(2);
+      line-height: normal;
+
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  a {
+    @include typographyMobile;
+    font-weight: bold;
+    border-bottom: none;
+
+    svg {
+      margin-left: s.spacing(1);
+    }
+
+    @include q.medium {
+      @include typographyOtherMedia;
+    }
+  }
+}
