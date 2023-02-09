@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
+import { SetStateAction, useEffect, useState } from 'react';
+import CKeditor from '../components/CKeditor';
 
 const inter = Inter({ subsets: ['latin'] });
 
