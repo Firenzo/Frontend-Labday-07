@@ -1,13 +1,9 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import { PersonData } from '@/components/PersonData/PersonData';
 
 import { TextField } from '@/components/textField/TextField';
 
-const inter = Inter({ subsets: ['latin'] });
-let rteData: string;
 
 export default function Home() {
   const save = async () => {
