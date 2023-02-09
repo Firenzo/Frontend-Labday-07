@@ -14,6 +14,7 @@ export type SubjectSearchPorps = {
   subject: string;
   field: string;
   language: string;
+  toggleLoad: () => void;
 };
 
 export type Item = {
@@ -26,6 +27,7 @@ export const SubjectSearch = ({
   subject,
   field,
   language,
+  toggleLoad,
 }: SubjectSearchPorps) => {
   const [result, setResult] = useState<Array<string>>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +136,10 @@ export const SubjectSearch = ({
             style={{
               margin: "15px 0",
             }}
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              toggleLoad();
+              setIsOpen(true);
+            }}
           >
             Add {subject}
           </button>
@@ -143,8 +148,13 @@ export const SubjectSearch = ({
               key={index}
               style={{
                 display: "block",
-                padding: "5px 0",
-                color: "#2977ff",
+                margin: "5px",
+                width: "fit-content",
+                color: "white",
+                fontWeight: "bold",
+                padding: "10px 25px",
+                backgroundColor: "#321092",
+                borderRadius: "7000px",
               }}
             >
               {item}
