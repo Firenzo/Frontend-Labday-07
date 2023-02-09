@@ -15,28 +15,27 @@ export type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <nav className={`${styles.navbar} wrapper`}>
-        <Link href={'/'}>
-          <Image
-            src={ematchLogo}
-            alt="Logo"
-            width={300}
-            className={styles.logo}
-          />
-        </Link>
-        <div className={styles.linkWrapper}>
-          <Link href={'https://example.com/'}>About</Link>
-          <Link href={'https://example.com/'}>Download</Link>
-        </div>
-        <div className={styles.flagWrapper}>
-          <Link href={'/?lang=nl'}>
-            <Image src={dutchFlag} alt="Dutch version" width={50} />
+      <nav className={styles.navbarWrapper}>
+        <div className={`${styles.navbar} wrapper`}>
+          <Link href={'/'}>
+            <Image
+              src={ematchLogo}
+              alt="Logo"
+              width={300}
+              className={styles.logo}
+            />
           </Link>
-          <Link href={'/?lang=en'}>
-            <Image src={britishFlag} alt="English version" width={50} />
-          </Link>
+          <div className={styles.flagWrapper}>
+            <Link href={'/?lang=nl'}>
+              <Image src={dutchFlag} alt="Dutch version" width={50} />
+            </Link>
+            <Link href={'/?lang=en'}>
+              <Image src={britishFlag} alt="English version" width={50} />
+            </Link>
+          </div>
         </div>
       </nav>
+
       <div className={styles.layout}>{children}</div>
     </>
   );
