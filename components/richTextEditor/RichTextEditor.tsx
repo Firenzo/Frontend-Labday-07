@@ -1,7 +1,7 @@
 import CKeditor from "../../components/CKeditor";
 import { SetStateAction, useEffect, useState } from "react";
 
-import styles from './LinkSection.module.scss';
+import styles from './RichTextEditor.module.scss';
 
 export type RichTextEditorProps = {
     rteData: string;
@@ -17,12 +17,14 @@ export function RichTextEditor({rteData:rteData}: RichTextEditorProps)
         }, []);
 
         return (
-            <div>
+            <div className={styles.wrapper}>
                 <CKeditor
                         name="description"
                         onChange={(data: SetStateAction<string>) => {
                         setData(data);
                         } }
                         editorLoaded={editorLoaded} value={rteData}/>
+
+                        <button>V</button>
             </div>
     );}
