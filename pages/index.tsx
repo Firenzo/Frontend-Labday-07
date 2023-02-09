@@ -3,15 +3,31 @@ import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import { RichTextEditor } from '@/components/richTextEditor/RichTextEditor';
+import { useState } from "react";
 
-const inter = Inter({ subsets: ['latin'] });
-let rteData = {
-  title: 'dit is een titel',
-  description:
-    'dit is de inhoud van de tekst, voor het overzicht is die wat langer gemaakt blabalablalbalbalblabblablablablablab',
-};
+const inter = Inter({ subsets: ["latin"] });
+let rteData: string;
 
 export default function Home() {
+
+  const [showRTE, setShowRTE] = useState(false);
+  function toggle(event: any){
+    setShowRTE(!showRTE);
+    rteData = event.target.innerText;
+  }
+
+  const save = async () => {
+    const res = await fetch('/api/field', {
+      body: JSON.stringify({
+        fieldName: 'profile',
+        language: 'nl',
+        value: 'Lorem ipsum'
+      }),
+      method: "PUT",
+    });
+  }
+
+
   return (
     <>
       <Head>
@@ -99,7 +115,14 @@ export default function Home() {
             </p>
           </a>
         </div>
-        <RichTextEditor data={rteData}></RichTextEditor>
+        <span onClick={(event) => toggle(event)}>click here to activate the text editor</span>
+        <div style={{
+          display: showRTE ? "block" : "none"
+        }} >
+          <RichTextEditor rteData={rteData}></RichTextEditor>
+        </div>
+        
+        <button onClick={save}>Save</button>
       </main>
     </>
   );
