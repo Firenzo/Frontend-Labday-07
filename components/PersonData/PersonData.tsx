@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 import styles from './PersonData.module.scss';
-import Image from 'next/image';
-
-import profilePhoto from '../../public/Profile_Photo.jpg';
 
 export type PersonData = {
   dateOfBirth: string;
