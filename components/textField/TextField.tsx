@@ -5,14 +5,28 @@ import styles from './LinkSection.module.scss';
 
 export type TextFieldProps = {
     rteData: string;
+    field: string;
+    language: string;
 };
 
-export function TextField({rteData:rteData}: TextFieldProps)
+export function TextField({rteData, field, language}: TextFieldProps)
     {
         const [showRTE, setShowRTE] = useState(false);
         function toggle(event: any){
             setShowRTE(!showRTE);
             rteData = event.target.innerText;
+        }
+
+        const save = async (value: string) => {
+            console.log(value);
+            await fetch('/api/field', {
+              body: JSON.stringify({
+                fieldName: field,
+                language: language,
+                value: value
+              }),
+              method: "PUT",
+            });
         }
 
         return (
@@ -23,7 +37,7 @@ export function TextField({rteData:rteData}: TextFieldProps)
                 <div style={{
                     display: showRTE ? "block" : "none"
                 }} >
-                    <RichTextEditor rteData={rteData}></RichTextEditor>
+                    <RichTextEditor rteData={rteData} saveData={save}></RichTextEditor>
                 </div>
             </div>   
     );}
