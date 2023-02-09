@@ -2,20 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
-import { RichTextEditor } from '@/components/richTextEditor/RichTextEditor';
 import { PersonData } from '@/components/PersonData/PersonData';
-import { useState } from 'react';
+
+import { TextField } from '@/components/textField/TextField';
 
 const inter = Inter({ subsets: ['latin'] });
 let rteData: string;
 
 export default function Home() {
-  const [showRTE, setShowRTE] = useState(false);
-  function toggle(event: any) {
-    setShowRTE(!showRTE);
-    rteData = event.target.innerText;
-  }
-
   const save = async () => {
     const res = await fetch('/api/field', {
       body: JSON.stringify({
@@ -39,16 +33,13 @@ export default function Home() {
         <PersonData />
 
         <div className={styles.grid}></div>
-        <span onClick={event => toggle(event)}>
-          click here to activate the text editor
-        </span>
-        <div
-          style={{
-            display: showRTE ? 'block' : 'none',
-          }}
-        >
-          <RichTextEditor rteData={rteData}></RichTextEditor>
-        </div>
+
+        <TextField
+          rteData={'click here to activate the text editor'}
+        ></TextField>
+        <TextField rteData={'2e veld voor het testen'}></TextField>
+
+        <TextField rteData={'3e veld voor het extra testen!'}></TextField>
 
         <button onClick={save}>Save</button>
       </main>
