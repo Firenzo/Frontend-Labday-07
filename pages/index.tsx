@@ -4,23 +4,12 @@ import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import { PersonData } from '@/components/PersonData/PersonData';
 
-import { TextField } from '@/components/textField/TextField';
+import { ProfileField } from '@/components/ProfileField/ProfileField';
 
 const inter = Inter({ subsets: ['latin'] });
 let rteData: string;
 
 export default function Home() {
-  const save = async () => {
-    const res = await fetch('/api/field', {
-      body: JSON.stringify({
-        fieldName: 'profile',
-        language: 'nl',
-        value: 'Lorem ipsum',
-      }),
-      method: 'PUT',
-    });
-  };
-
   return (
     <>
       <Head>
@@ -31,17 +20,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <PersonData />
+        <ProfileField />
 
         <div className={styles.grid}></div>
-
-        <TextField
-          rteData={'click here to activate the text editor'} field='profile' language='nl'
-        ></TextField>
-        {/* <TextField rteData={'2e veld voor het testen'}></TextField>
-
-        <TextField rteData={'3e veld voor het extra testen!'}></TextField> */}
-
-        <button onClick={save}>Save</button>
       </main>
     </>
   );
