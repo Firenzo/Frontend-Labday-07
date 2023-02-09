@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ematchLogo from '../public/Logo.svg';
 import dutchFlag from '../public/Flag_of_the_Netherlands.svg';
 import britishFlag from '../public/Flag_of_the_United_Kingdom.svg';
+import { Button } from '@/components/button/Button';
 
 import styles from './layout.module.scss';
 
@@ -26,12 +27,7 @@ export default function Layout({ children }: LayoutProps) {
             />
           </Link>
           <div className={styles.flagWrapper}>
-            <Link href={'/?lang=nl'}>
-              <Image src={dutchFlag} alt="Dutch version" width={50} />
-            </Link>
-            <Link href={'/?lang=en'}>
-              <Image src={britishFlag} alt="English version" width={50} />
-            </Link>
+            <Button></Button>
           </div>
         </div>
       </nav>
