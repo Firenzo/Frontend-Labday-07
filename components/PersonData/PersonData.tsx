@@ -15,11 +15,6 @@ export type PersonData = {
   residence: string;
 };
 
-// export type PersonDataProps = {
-//   title: string;
-//   linkList: Array<{ text: string; value: string }>;
-// };
-
 export function PersonData() {
   const [personData, setPersonData] = useState<PersonData | null>(null);
 
@@ -40,18 +35,33 @@ export function PersonData() {
 
   return (
     personData && (
-      <div className={styles.linkSection}>
-        <Image
-          src={profilePhoto}
-          alt="Mila's photo"
-          width={300}
-          className={styles.profilePhoto}
-        />
-        <p> {personData.name}</p>
-        <p>Date of birth: {personData.dateOfBirth}</p>
-        <p>Residence: {personData.residence}</p>
-        <p>Nationality: {personData.nationality}</p>
-        <p>Grade: {personData.grade}</p>
+      <div className={styles.personDataWrapper}>
+        <div className={styles.photoWrapper}>
+          {/* <Image
+            src={profilePhoto}
+            alt="Mila's photo"
+            width={300}
+            className={styles.profilePhoto}
+          /> */}
+        </div>
+        <div className={styles.dataWrapper}>
+          <p className={styles.name}>{personData.name}</p>
+          <p>
+            <span>Date of birth:</span> {personData.dateOfBirth}
+          </p>
+          <p>
+            <span>Residence:</span>
+            {personData.residence}
+          </p>
+          <p>
+            <span>Nationality:</span>
+            {personData.nationality}
+          </p>
+          <p>
+            <span>Grade:</span>
+            {personData.grade}
+          </p>
+        </div>
       </div>
     )
   );

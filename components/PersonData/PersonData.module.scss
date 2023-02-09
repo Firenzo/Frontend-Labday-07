@@ -1,0 +1,34 @@
+.personDataWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.photoWrapper {
+  margin-right: 50px;
+  background-size: cover;
+  height: 270px;
+  width: 270px;
+  background-image: url(/_next/static/media/Profile_Photo.0df4889a.jpg);
+  border-radius: 50%;
+  background-position: center;
+}
+
+.dataWrapper {
+  font-size: 20px;
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  span {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}
+
+.name {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
