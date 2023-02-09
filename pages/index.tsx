@@ -1,20 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import { SetStateAction, useEffect, useState } from "react";
-import CKeditor from "../components/CKeditor";
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from '@next/font/google';
+import styles from '@/styles/Home.module.css';
+import { RichTextEditor } from '@/components/richTextEditor/RichTextEditor';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
+let rteData = {
+  title: 'dit is een titel',
+  description:
+    'dit is de inhoud van de tekst, voor het overzicht is die wat langer gemaakt blabalablalbalbalblabblablablablablab',
+};
 
 export default function Home() {
-  const [editorLoaded, setEditorLoaded] = useState(false);
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    setEditorLoaded(true);
-  }, []);
-
   return (
     <>
       <Head>
@@ -24,29 +21,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
         <div className={styles.center}>
           <Image
             className={styles.logo}
@@ -125,15 +99,7 @@ export default function Home() {
             </p>
           </a>
         </div>
-        <div>
-      <CKeditor
-            name="description"
-            onChange={(data: SetStateAction<string>) => {
-              setData(data);
-            } }
-            editorLoaded={editorLoaded} value={undefined}      />
-       {JSON.stringify(data)}
-    </div>
+        <RichTextEditor data={rteData}></RichTextEditor>
       </main>
     </>
   );
