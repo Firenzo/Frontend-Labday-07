@@ -1,7 +1,16 @@
 .wrapper {
 
     button{
-        background: red;
-        color: green;
+        width: 25px;
+        background: white;
+        color:  green;
+        font-size: 25px;
+        border: none;
+        float: right;
+
+        &:hover{
+            cursor: pointer;
+        }
     }
+    
 }
