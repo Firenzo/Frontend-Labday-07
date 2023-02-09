@@ -18,7 +18,6 @@ export function TextField({rteData, field, language}: TextFieldProps)
         }
 
         const save = async (value: string) => {
-            console.log(value);
             await fetch('/api/field', {
               body: JSON.stringify({
                 fieldName: field,
@@ -27,6 +26,8 @@ export function TextField({rteData, field, language}: TextFieldProps)
               }),
               method: "PUT",
             });
+
+            setShowRTE(false);
         }
 
         return (
